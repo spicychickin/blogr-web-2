@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Blogr - Modern Publishing Platform</title>
+</head>
+<style>
+  .gradient-bg {
+    background: linear-gradient(135deg, #FF8F71 0%, #FF3E55 100%);
+  }
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+
+  body {
+    font-family: 'Overpass', sans-serif;
+  }
+
+  .ubuntu-light {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .ubuntu-medium {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .ubuntu-bold {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+</style>
+
+<!-- Header Section -->
+
+<body>
+  <header class="gradient-bg text-white min-h-[600px] rounded-bl-[100px] relative overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="images/bg-pattern-intro-desktop.svg" alt=""
+        class="hidden lg:block absolute w-[250%] h-[400%] object-cover top-[2%] transform -translate-x-1 -translate-y-[40%]">
+      <img src="images/bg-pattern-intro-mobile.svg" alt="" f
+        class="lg:hidden absolute w-[250%] h-[400%] object-cover top-[2%] transform -translate-x-1 -translate-y-[40%]">
+    </div>
+
+    <div class="max-w-[1280px] mx-auto relative z-10">
+
+      <nav class="flex justify-between items-center py-12 md:px-8 lg:px-4 px-4">
+        <div class="text-3xl font-semibold">Blogr</div>
+        <div class="hidden lg:flex space-x-8">
+          <a href="" class="hover:underline">Product</a>
+          <a href="" class="hover:underline">Company</a>
+          <a href="" class="hover:underline">Connect</a>
+        </div>
+        <div class="hidden lg:flex items-center space-x-4">
+          <button class="hover:underline">Login</button>
+          <button class="bg-white text-red-500 font-semibold px-6 py-2 rounded-full hover:bg-opacity-90">Sign
+            Up</button>
+        </div>
+        <button id="hamburger-menu" class="lg:hidden">
+          <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </nav>
+
+      <div class="text-center px-6 mt-16 items-center">
+        <h1 class="text-[36px] font-normal mb-6">A modern publishing platform</h1>
+        <p class="text-[18px] font-thin mb-8">Grow your audience and build your online brand</p>
+        <div class="space-x-4">
+          <button class="bg-white text-red-500 px-6 font-semibold py-3 rounded-full hover:bg-opacity-90">Start for
+            Free</button>
+          <button class="border-2 border-white px-6 py-3 rounded-full hover:bg-white hover:text-red-500">Learn
+            More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Dialog -->
+    <div id="mobile-menu" class="fixed top-20 right-4 left-4 z-50 hidden">
+      <div class="bg-white w-full max-w-md mx-auto rounded-lg shadow-2xl overflow-hidden">
+        <!-- Menu Items -->
+        <div class="p-6">
+          <!-- Product Dropdown -->
+          <div class="mb-4">
+            <button id="product-button"
+              class="flex items-center justify-between w-full py-3 text-[#1F3E5A] font-medium text-lg hover:text-red-500 transition-colors">
+              <span>Product</span>
+              <svg id="product-arrow" class="w-4 h-4 transform transition-transform text-red-400" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="product-dropdown" class="hidden bg-gray-50 rounded-lg mt-2 p-4 space-y-3">
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">Overview</a>
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">Pricing</a>
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">Marketplace</a>
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">Features</a>
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">Integrations</a>
+            </div>
+          </div>
+
+          <!-- Company Dropdown -->
+          <div class="mb-4">
+            <button id="company-button"
+              class="flex items-center justify-between w-full py-3 text-[#1F3E5A] font-medium text-lg hover:text-red-500 transition-colors">
+              <span>Company</span>
+              <svg id="company-arrow" class="w-4 h-4 transform transition-transform text-red-400" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="company-dropdown" class="hidden bg-gray-50 rounded-lg mt-2 p-4 space-y-3">
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">About</a>
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">Team</a>
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">Blog</a>
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">Careers</a>
+            </div>
+          </div>
+
+          <!-- Connect Dropdown -->
+          <div class="mb-6">
+            <button id="connect-button"
+              class="flex items-center justify-between w-full py-3 text-[#1F3E5A] font-medium text-lg hover:text-red-500 transition-colors">
+              <span>Connect</span>
+              <svg id="connect-arrow" class="w-4 h-4 transform transition-transform text-red-400" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="connect-dropdown" class="hidden bg-gray-50 rounded-lg mt-2 p-4 space-y-3">
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">Contact</a>
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">Newsletter</a>
+              <a href="#" class="block text-[#4C5862] hover:text-red-500 transition-colors">LinkedIn</a>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <hr class="border-gray-200 mb-6">
+
+          <!-- Login and Sign Up -->
+          <div class="space-y-4">
+            <button class="w-full text-[#1F3E5A] font-medium text-lg py-3 hover:text-red-500 transition-colors">
+              Login
+            </button>
+            <button
+              class="w-full bg-gradient-to-r from-[#FF8F71] to-[#FF3E55] text-white font-semibold py-3 px-6 rounded-full hover:opacity-90 transition-opacity">
+              Sign Up
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Section -->
+  <section class="w-full pt-20 mb-40 lg:px-0 px-4 overflow-hidden">
+    <h2 class="text-2xl lg:text-[40px] text-[#1F3E5A] font-semibold text-center items-center mb-6">Designed for the
+      future</h2>
+    <div class="w-full max-w-[1280px] mx-auto">
+      <div class="w-full h-full flex lg:flex-row flex-col items-center gap-12">
+        <div class="lg:w-1/2 space-y-12 lg:order-1 md:mb-16 order-2 px-6 lg:px-auto">
+          <div class="w-full">
+            <h3 class="lg:text-3xl text-2xl text-[#1F3E5A] font-normal mb-4 lg:text-left text-center">Introducing an
+              extensible
+              editor</h3>
+            <p class="text-[#4C5862] text-center lg:text-left">
+              Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content. The
+              editor supports management of multiple blogs and allows easy manipulation of embeds such as images,
+              videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or
+              change the looks of a blog.
+            </p>
+          </div>
+          <div class="w-full">
+            <h3 class="lg:text-3xl text-2xl text-[#1F3E5A] font-normal mb-4 lg:text-left text-center">Robust content
+              management</h3>
+            <p class="text-[#4C5862] text-center lg:text-left">
+              Flexible content management enables users to easily move through posts. Increase the usability of your
+              blog by adding customized categories, sections, format, or flow. With this functionality, you're in full
+              control.
+            </p>
+          </div>
+        </div>
+
+        <!-- Editor illustration -->
+        <div class="lg:w-1/2 lg:order-2 order-1">
+          <img src="images/illustration-editor-desktop.svg" alt="Editor illustration"
+            class="hidden lg:block min-w-[900px] transform 2xl:translate-x-[35%] -translate-y-[5%]">
+          <img src="images/illustration-editor-mobile.svg" alt="Editor illustration" class="lg:hidden w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="bg-gradient-to-br from-[#2D2E40] to-[#3F4164] h-[625px] lg:h-[450px] text-white my-20 rounded-tr-[100px] rounded-bl-[100px] relative">
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="images/bg-pattern-circles.svg" alt="" class="absolute
+      w-[600px] lg:w-[1020px]
+      -top-[100px] lg:-top-[600px] md:-top-[200px]
+      -left-[10px] lg:-left-[100px] md:-left-[-80px]">
+    </div>
+
+    <div class="max-w-[1280px] mx-auto relative z-10">
+      <div class="flex lg:flex-row flex-col items-center">
+        <img src="images/illustration-phones.svg" alt=""
+          class="ml-2 min-w-[330px] lg:min-w-[500px] transform translate-y-[-35%] md:translate-y-[-27%] lg:-translate-y-10">
+        <div class="text-left order-1 lg:order-2 px-8">
+          <h2 class="text-[40px] font-normal mb-6 -mt-40 md:-mt-48 lg:-mt-0 text-center lg:text-left">State of the Art
+            Infrastructure</h2>
+          <p class="text-gray-300 text-[16px] text-center lg:text-left">
+            With reliability and speed in mind, worldwide data centers provide the <br /> backbone for ultra-fast
+            connectivity.
+            This ensures your site will load <br /> instantly, no matter where your readers are, keeping your site
+            <br />
+            competitive.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w-full h-full lg:py-20 overflow-hidden">
+    <div class="mx-auto">
+      <div class="flex flex-col lg:flex-row items-center">
+        <img src="images/illustration-laptop-desktop.svg" alt="Laptop Illustration"
+          class="hidden lg:flex lg:ml-[-250px]">
+        <img src="images/illustration-laptop-mobile.svg" alt="Laptop Illustration" class="lg:hidden w-full mb-5">
+        <div class=" space-y-12 px-8 lg:pr-32 text-center lg:text-left">
+          <div>
+            <h3 class="text-2xl text-[#1F3E5A] font-bold mb-4">Free, open, simple</h3>
+            <p class="text-[#4C5862]">
+              Blogr is a free and open source application backed by a large community of helpful developers. It supports
+              features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting
+              tools, and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to
+              learn.
+            </p>
+          </div>
+          <div>
+            <div>
+              <h3 class="text-2xl text-[#1F3E5A] font-bold mb-4">Powerful tooling</h3>
+              <p class="text-[#4C5862]">
+                Batteries included. We built a simple and straightforward CLI tool that makes customization and
+                deployment
+                a breeze, but capable of producing even the most complicated sites.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#24242C] text-white rounded-tr-[100px] py-16 mt-20">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8 text-center lg:text-left">
+        <div>
+          <div class="text-3xl ubuntu-bold">Blogr</div>
+        </div>
+        <div>
+          <h4 class="ubuntu-medium mb-6">Product</h4>
+          <ul class="space-y-2 ubuntu-light">
+            <li><a href="">Overview</a></li>
+            <li><a href="">Pricing</a></li>
+            <li><a href="">Marketplace</a></li>
+            <li><a href="">Features</a></li>
+            <li><a href="">Integrations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="ubuntu-medium mb-6">Company</h4>
+          <ul class="space-y-2 ubuntu-light">
+            <li><a href="">About</a></li>
+            <li><a href="">Team</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="ubuntu-medium mb-6">Connect</h4>
+          <ul class="space-y-2 ubuntu-light">
+            <li><a href="">Contact</a></li>
+            <li><a href="">Newsletter</a></li>
+            <li><a href="">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu functionality
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    // Toggle mobile menu
+    hamburgerMenu.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      hamburgerIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking outside
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+
+    // Dropdown functionality
+    const dropdownButtons = [{
+        button: document.getElementById('product-button'),
+        dropdown: document.getElementById('product-dropdown'),
+        arrow: document.getElementById('product-arrow')
+      },
+      {
+        button: document.getElementById('company-button'),
+        dropdown: document.getElementById('company-dropdown'),
+        arrow: document.getElementById('company-arrow')
+      },
+      {
+        button: document.getElementById('connect-button'),
+        dropdown: document.getElementById('connect-dropdown'),
+        arrow: document.getElementById('connect-arrow')
+      }
+    ];
+
+    dropdownButtons.forEach(({
+      button,
+      dropdown,
+      arrow
+    }) => {
+      button.addEventListener('click', () => {
+        // Toggle current dropdown
+        dropdown.classList.toggle('hidden');
+        arrow.classList.toggle('rotate-180');
+
+        // Close other dropdowns
+        dropdownButtons.forEach(({
+          dropdown: otherDropdown,
+          arrow: otherArrow
+        }) => {
+          if (otherDropdown !== dropdown) {
+            otherDropdown.classList.add('hidden');
+            otherArrow.classList.remove('rotate-180');
+          }
+        });
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#mobile-menu')) {
+        dropdownButtons.forEach(({
+          dropdown,
+          arrow
+        }) => {
+          dropdown.classList.add('hidden');
+          arrow.classList.remove('rotate-180');
+        });
+      }
+    });
+  </script>
+
+  <script>
+    // Additional click outside functionality for mobile menu
+    document.addEventListener('click', (e) => {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const hamburgerMenu = document.getElementById('hamburger-menu');
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+      const closeIcon = document.getElementById('close-icon');
+
+      // Close mobile menu if clicking outside and not on hamburger button
+      if (!e.target.closest('#mobile-menu') && !e.target.closest('#hamburger-menu')) {
+        mobileMenu.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+
+</html>
